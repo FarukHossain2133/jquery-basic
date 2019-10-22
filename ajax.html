@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <header>
+        <h1>jQuery Crash course Ajax</h1>
+    </header>
+    <div class="container">
+        <button class="btn btn-primary" id="dataBtn">Fetch Data</button>
+        <ul id="users"></ul>
+        <div id="result"></div>
+        <h3>Add Post</h3>
+        <form action="https://jsonplaceholder.typicode.com/posts" id="postForm">
+            <input type="text" id="title" placeholder="Title">
+            <br>
+            <textarea placeholder="body" id="body"></textarea>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+        <!-- <h1 id="heading1">Heading One</h1>
+        <p id="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit.  excepturi iure facere a voluptate? <span>Alias aliquid ea </span>quisquam maxime quidem harum repellendus deleniti voluptatem corporis voluptatibus. Minus, nostrum quidem!</p> -->
+    </div>
+    
+    <script>
+       $(document).ready(function(){
+        // $('#dataBtn').click(function(){
+        // $.getJSON('users.json', function(data){
+        //     $.each(data, function(index, user){
+        //         $('ul#users').append(`<li>${user.name}</li>`)
+        //     })
+        // })
+        $('#dataBtn').click(function(){
+            $.ajax({
+                method: 'GET',
+                url: 'https://jsonplaceholder.typicode.com/posts',
+                dataType: 'json'
+            }).done(function(data){
+                console.log(data)
+                $.map(data, function(data){
+                    $('#result').append(`<h3>${data.title}</h3><p>${data.body}</p>`)
+                })
+            })
+        });
+
+
+        $('#postForm').submit(function(e){
+            e.preventDefault();
+            var title = $('#title').val();
+            var body = $('#body').val();
+            var url = $(this).attr('action');
+            $.post(url, {
+                title, 
+                body
+            }).done(function(data){
+                console.log('post saved')
+                console.log(data)
+            })
+        })
+
+   
+
+        // $('#result').load('output1.html', function(response, status, xhr){
+        //     if(status == "success"){
+        //         alert('It went fine')
+        //     } else if(status == "error"){
+        //         alert('Error '+ xhr.status)
+        //     }
+        // })
+            // $.get('output.html', function(data){
+            //     $('#result').html(data)
+            // })
+
+       });
+    </script>
+</body>
+</html> 

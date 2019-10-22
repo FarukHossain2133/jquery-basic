@@ -1,0 +1,41 @@
+body {
+  
+
+}
+
+header {
+    padding: 5px;
+    background-color: darkcyan;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+/* 
+form input {
+    padding: 4px;
+    margin: 5px 0;
+} */
+
+.myClass {
+    color: blue;
+    background: black
+}
+
+#box {
+    background: rgb(61, 17, 17);
+    color: #fff;
+    width: 500px;
+    padding: 40px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#animate {
+    background: chocolate;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}

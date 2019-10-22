@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <header>
+        <h1>jQuery Crash course</h1>
+    </header>
+    <div class="container">
+        <div id="fadeOut" class="btn btn-primary">Fade out</div>
+        <div id="fadeIn" class="btn btn-primary">Fade in</div>
+        <div id="fadeToggle" class="btn btn-primary">Fade Toggle</div>
+        <div id="slideUp" class="btn btn-primary">Slide Up</div>
+        <div id="slideDown" class="btn btn-primary">slide Down</div>
+        <div id="slideToggle" class="btn btn-primary">slide Toggle</div>
+        <div id="slideStop" class="btn btn-primary">slide Stop</div>
+
+        <h1 id="heading1">Heading One</h1>
+        <p id="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit.  excepturi iure facere a voluptate? <span>Alias aliquid ea </span>quisquam maxime quidem harum repellendus deleniti voluptatem corporis voluptatibus. Minus, nostrum quidem!</p>
+        <div id="box">
+            <h1>Hello World</h1>
+        </div>
+        <hr>
+        <div id="moveLeft" class="btn btn-primary">move left</div>
+        <div id="moveRight" class="btn btn-primary">move right</div>
+        <div id="moveAround" class="btn btn-primary">move Around</div>
+
+        <div id="animate"></div>
+    </div>
+    
+    <script>
+       $(document).ready(function(){
+
+        $('#moveRight').click(function(){
+            $('#animate').animate({
+                left: 500,
+                height: '300px',
+                width: '300px',
+                opacity: 0.5
+            })
+        });
+
+        $('#moveLeft').click(function(){
+            $('#animate').animate({
+                left: 0,
+                height: '100px',
+                width: '100px',
+                opacity: 1
+            })
+        });
+
+        $('#moveAround').click(function(){
+            $('#animate').animate({
+               left: 300,
+            })
+            $('#animate').animate({
+               top: 300,
+            })
+            $('#animate').animate({
+               left: 0,
+               top: 300
+            })
+            $('#animate').animate({
+               left: 0,
+               top: 0
+            })
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $('#fadeOut').click(function(){
+            $('#box').fadeOut(3000, function(){
+                $('#fadeOut').text('Its gone')
+            })
+        });
+        $('#fadeIn').click(function(){
+            $('#box').fadeIn(3000, function(){
+                $('#fadeOut').text('FadeOut')
+            })
+        })
+        $('#fadeToggle').click(function(){
+            $('#box').fadeToggle(3000)
+        })
+        $('#slideDown').click(function(){
+            $('#box').slideDown(3000)
+        })
+        $('#slideUp').click(function(){
+            $('#box').slideUp(3000)
+        })
+
+        $('#slideToggle').click(function(){
+            $('#box').slideToggle(3000)
+        })
+        $('#slideStop').click(function(){
+            $('#box').stop()
+        })
+
+
+
+       });
+
+
+    </script>
+</body>
+</html> 

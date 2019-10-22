@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <header>
+        <h1>jQuery Crash course</h1>
+    </header>
+    <div class="container">
+        <button class="btn btn-primary" id="btn1">Btn 1</button>
+
+        <h1 id="heading1">Heading One</h1>
+        <p class="para1">Para1 Lorem ipsum dolor sit amet consectetur adipisicing elit.  excepturi iure facere a voluptate? <span>Alias aliquid ea </span>quisquam maxime quidem harum repellendus deleniti voluptatem corporis voluptatibus. Minus, nostrum quidem!</p>
+        <p class="para2">Para2 Lorem ipsum dolor sit amet consectetur adipisicing elit.  excepturi iure facere a voluptate? <span>Alias aliquid ea </span>quisquam maxime quidem harum repellendus deleniti voluptatem corporis voluptatibus. Minus, nostrum quidem!</p>
+        <div id="myDiv"></div>
+        <input type="text" id="newItem">
+        <ul id="list">
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li>list item 3</li>
+            <li>list item 4</li>
+        </ul>
+        <a href="https://faruk-portfolio.herokuapp.com">Heroku</a>
+        <ul id="users"></ul>
+    </div>
+    
+    <script>
+       $(document).ready(function(){
+
+        $('#newItem').keyup(function(e){
+            var code = e.which;
+            if(code == 13){
+                e.preventDefault();
+                $('ul').append('<li>'+e.target.value+'</li>')
+            }
+        });
+
+        var newArr = $('ul#list li').toArray();
+        console.log(newArr)
+          $.each(newArr, function(index, val){
+            console.log(val.innerHTML)
+          })
+
+
+        // var myArr = ['Brad', 'Kelley', 'Nate', 'Jose']
+        // $.each(myArr, function(index, val){
+        //     $('#users').append('<li>' + val + '</li>')
+
+        // })
+        // $('p').wrapAll('<h1>')
+
+
+        // $('ul').append('<li>Append list item</li>')
+        // $('ul').prepend('<li> prepend list item</li>')
+
+        // $('ul').after('<h4>Helo</h4>')
+        // $('ul').empty()
+        // $('a').attr('target', '_blank')
+        // // alert($('a').attr('href'))
+        // $('a').removeAttr('target')
+ 
+        // $('.para1').prependTo('.para2')
+        // $('p.para1').css('color', 'red')
+        // $('p.para1').css({
+        //     'color': 'white',
+        //     'background-color': 'green',
+        //     'padding': '10px',
+        //     'boxsizing': 'borderBox',
+        //     'borderRadius': '5px'
+        //     });
+
+        //     $('p.para2').addClass('myClass')
+        //     $('p.para2').removeClass('myClass')
+
+        //     $('#btn1').click(function(){
+        //     $('p.para2').toggleClass('myClass')
+        //     });
+        //     // $('#myDiv').text('Hello world')
+        //     $('#myDiv').html('<h3>Hello world</h3>');
+        //     alert($('#myDiv').html())
+       });
+    </script>
+</body>
+</html> 

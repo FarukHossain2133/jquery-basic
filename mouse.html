@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+     
+    <header>
+        <h1>jQuery Crash course</h1>
+    </header>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="heading1">Heading One</h1>
+            <button id="btn1" class="btn btn-primary">Button 1</button>
+            <button id="btn2" class="btn btn-secondary">Button 2</button>
+            <p class="result"></p>
+            <p class="para1 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.  excepturi iure facere a voluptate? <span>Alias aliquid ea </span>quisquam maxime quidem harum repellendus deleniti voluptatem corporis voluptatibus. Minus, nostrum quidem!</p>
+         </div>  
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form action="" method="POST" id="form">
+                       <div class="form-group">
+                           <label for="fname">fname</label>
+                            <input type="text" class="form-control" name="fname"  id="fname">
+                            <small id="fnameHelp"  class="form-text text-muted">Please input your name</small>
+                        </div>
+                       <div class="form-group">
+                            <label for="lname">lname</label>
+                            <input type="text" class="form-control" name="lname"  id="lname">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">age</label>
+                            <input type="text" name="age" class="form-control"  id="age">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Select Gender</label>
+                            <select class="form-control" id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">female</option>
+                            </select>
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+            $('input').focus(function(){
+               $(this).css('background', 'pink')
+            });
+            $('input').blur(function(){
+               $(this).css('background', 'white')
+            });
+
+            $('input').keyup(function(e){
+               
+                const str = e.target.value;
+                const value = str.match(/\d/g)
+
+                 if(value){
+                    $('#fnameHelp').html('Please avoid the number value')
+                    $('#fnameHelp').css('color', 'red')
+                }else{
+               
+                    $('#fnameHelp').css('color', 'green')
+                }
+
+            })
+
+            $('select#gender').change(function(e){
+                alert(e.target.value)
+            })
+
+            $('#form').submit(function(e){
+                e.preventDefault()
+                var name = $('input#fname').val( )
+                console.log(name)
+            })
+
+            // $('#btn1').click(function(){
+            //     alert('You clicked the button 1')
+            // });
+
+            // $('#btn1').on('click', function(){
+            //     alert('You clicked the button 1')
+           
+            // })
+            // $('#btn1').on('click', function(){
+            //     $('.para1').toggle ()
+            // })
+            // $('#btn2').on('click', function(){
+            //     $('.para1').show()
+            // })
+            // $('#btn1').on('mouseenter', function(){
+            //     $('.para1').toggle()
+            // })
+            // $('#btn1').on('mouseleave', function(){
+            //     $('.para1').toggle()
+            // })
+
+            // $('#btn1').on('mousedown', function(){
+            //     $('.para1').toggle()
+            // })
+            
+            // $('#btn1').on('mouseup', function(){
+            //     $('.para1').toggle()
+            // })
+
+            $('#btn1').click(function(e){
+                // alert(e.currentTarget.id)
+                // alert(e.currentTarget.innerHTML)
+                // alert(e.currentTarget.outerHTML)
+            });
+            $(document).on('mousemove', function(e){
+               $('.result').html('Coords: X: ' + e.clientX + ' Y: ' + e.clientY);
+            })
+        });
+               
+    </script>
+    
+</body>
+</html> 
